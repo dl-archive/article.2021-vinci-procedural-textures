@@ -16,12 +16,10 @@ DOI: [10.1145/3481549.3481570](https://doi.org/10.1145/3481549.3481570) · Autho
 
 ## Contents
 
-| path | |
-|------|-|
-| `src/` | LaTeX sources of the camera-ready version (ACM `acmart`, sigconf), as submitted to ACM |
-| `limberger2021-procedural-as-submitted.pdf` | camera-ready PDF as submitted |
-| `preview/` | page previews for this README |
-| `build.sh` | reproducible build using TeX Live 2021 (podman/docker) |
+- [`src/`](src/) – LaTeX sources of the camera-ready version (ACM `acmart`, sigconf)
+- [`limberger2021-procedural-as-submitted.pdf`](limberger2021-procedural-as-submitted.pdf) – camera-ready PDF as submitted to ACM
+- [`build.sh`](build.sh) – reproducible build with TeX Live 2021 (podman or docker)
+- [`preview/`](preview/) – page previews for this README
 
 ## Build
 
@@ -34,9 +32,7 @@ The build reproduces `limberger2021-procedural-as-submitted.pdf` (identical text
 
 ## Versions
 
-| tag | |
-|-----|-|
-| `v1.0-camera-ready` | sources as submitted to ACM (2021-09-16) |
+- [`v1.0-camera-ready`](https://github.com/dl-archive/article.2021-vinci-procedural-textures/tree/v1.0-camera-ready) – sources as submitted to ACM (2021-09-16)
 
 ## Citation
 

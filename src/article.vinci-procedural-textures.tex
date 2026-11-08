@@ -32,6 +32,8 @@
 \usepackage{pifont}
 
 \usepackage{tikz}
+\usepackage{eso-pic}
+\AddToShipoutPictureFG{\AtPageLowerLeft{\put(\LenToUnit{0.5\paperwidth},\LenToUnit{6mm}){\makebox[0pt][c]{\fontsize{6.5}{8}\selectfont\color{gray}Author's revised version (2026-11-08). Version of record: \url{https://doi.org/10.1145/3481549.3481570}}}}}
 \usetikzlibrary{calc,positioning,spy}
 
 \newcommand*\rot{\rotatebox{90}}
@@ -96,7 +98,7 @@
     This work investigates the extent to which animated procedural texture patterns can be used to support the representation of changes in 2.5D treemaps.
     Changes in height, color, and area of individual nodes can easily be visualized using animated transitions.
     Especially for changes in the color attribute, plain animated transitions are not able to directly communicate the direction of change itself.
-    We show how procedural texture patterns can be superimposed to the color mapping and support transitions.
+    We show how procedural texture patterns can be superimposed onto the color mapping and support transitions.
     To this end, we discuss qualitative properties of each pattern, demonstrate their ability to communicate change direction both with and without animation, and conclude which of the patterns are more likely to increase effectiveness and correctness of the change mapping in 2.5D treemaps.
 \end{abstract}
 
@@ -118,9 +120,10 @@
 \ccsdesc[500]{Human-centered computing~Treemaps}
 \ccsdesc[300]{Human-centered computing~Information visualization}
 
-\keywords{visualization, time-variant data, change visualization, 2.5d treemaps, animated transitions, procedural textures, read direction}
+\keywords{visualization, time-variant data, change visualization, 2.5D treemaps, animated transitions, procedural textures, read direction}
 
 \maketitle
+\hypersetup{pdftitle={Visualization of Data Changes in 2.5D Treemaps using Procedural Textures and Animated Transitions}}
 
 \section{Introduction}
 \begin{figure}[t]
@@ -129,23 +132,23 @@
             \includegraphics[width=1.0\linewidth, trim=0 48 0 0, clip]{figures/teaser}};
         \spy [white] on ($(arrows0.center)+(-1.0, +2.25)$) in node at ($(+2.0, +1.0)+(arrows0.center)$);
     \end{tikzpicture}
-    \caption{Tiny hierarchical test data set depicted using a 2.5D treemap that allows to transition between subsequent values in time-series data mapped to area, height, and color. A combination of two of our procedural patterns is used to animate changes in subsequent values mapped to color.}
+    \caption{Tiny hierarchical test data set depicted using a 2.5D treemap that allows transitioning between subsequent values in time-series data mapped to area, height, and color. A combination of two of our procedural patterns is used to animate changes in subsequent values mapped to color.}
     \label{fig:teaser}
 \end{figure}
 Treemaps have become a highly expressive tool for visualizing hierarchical, multi-variate data in a variety of domains, including software data~\cite{limberger2019-softwaremaps}.
 Typically, the data represented has a timestamp and changes over time.
 Software maps, for example, can represent aspects of a software system for a specific revision or time.
-We want to enable users to interactively explore correlations in time-varying software system engineering data, i.e., metrics per revision, development budgets, status and progress of defects and issues, team composition, development activity, etc..
+We want to enable users to interactively explore correlations in time-varying software system engineering data, i.e., metrics per revision, development budgets, status and progress of defects and issues, team composition, development activity, etc.
 An explicit mapping of the difference between two subsequent states to color or height would be the first choice.
 For 2D treemaps, color patterns such as \emph{two corners}---resulting in a diagonal color gradient---or contrast modifications like \emph{ratio shading} can be used~\cite{tu2007-changes}.
 The time dimension can further be incorporated by distributing multiple maps spatially using small multiples~\cite{scheibel2016-smallmultiples,chen2017-pesticide}.
-Provided the evolution (over more that just two states) is already analyzed and available by means of trend data, natural metaphors such as physical-based material degradation, shininess, or glyphs can be an effective tool for communication~\cite{wurfel2016-naturalphenomena}.
+Provided the evolution (over more than just two states) is already analyzed and available by means of trend data, natural metaphors such as physically based material degradation, shininess, or glyphs can be an effective tool for communication~\cite{wurfel2016-naturalphenomena}.
 
 We want to assist height and color mappings already in use (\emph{map themes}) and intrinsically emphasize temporal changes, but rely on the user's existing understanding of treemaps.
 Thereby, the representation of change should visually correspond to the change in data (\emph{visual-data-correspondence})~\cite{kindlmann2014-algebraic}, i.e., the actual difference between two values and the direction of change (or sign of the difference).
-For this, basic variants of of \emph{data vases}~\cite{thakur2009-datavases}, glyphs~\cite{pires2020-glyphs}, or \emph{in-situ templates}~\cite{limberger2019-insitu} can be used.
+For this, basic variants of \emph{data vases}~\cite{thakur2009-datavases}, glyphs~\cite{pires2020-glyphs}, or \emph{in-situ templates}~\cite{limberger2019-insitu} can be used.
 The latter allow for change encoding of up to three visual variables simultaneously, though, ample training is required and issues with reading direction must be considered.
-A simple but effective use of in-situ templates for display of changes in height is given in~\autoref{fig:static-display}, one using explicit color mapping (thereby partially occluding the actual color mapping) the other a procedural patterns for direction encoding (using an arrow pattern).
+A simple but effective use of in-situ templates for display of changes in height is given in~\autoref{fig:static-display}, one using explicit color mapping (thereby partially occluding the actual color mapping) the other a procedural pattern for direction encoding (using an arrow pattern).
 Alternatively, animation by means of an interpolation of height and color attributes~\cite{bladh2005-transitions,langelier2008-evolution} could be used. 
 
 In this work, we combine these two approaches: we utilize procedural texture patterns for more effective animated transitions~(\autoref{fig:teaser}).
@@ -186,12 +189,12 @@ The patterns differ mainly in their appearance, granularity, and the surfaces th
         \spy [white] on ($(arrows3.center)+(+0.45, +0.325)$) in node at ($(+2.0, +0.25)+(arrows3.center)$);
         \spy [white] on ($(arrows4.center)+(+0.45, +0.325)$) in node at ($(+2.0, +0.25)+(arrows4.center)$);
     \end{tikzpicture}
-    \caption{Procedural patterns for changes in color attribute, from top to bottom: pillar, pyramid, dithering, squares, and noise. All of the above are not capable to encode the direction of change ($\Delta_{\textrm{DirChange}}$) when animation is paused.}
+    \caption{Procedural patterns for changes in color attribute, from top to bottom: pillar, pyramid, dithering, squares, and noise. All of the above are not capable of encoding the direction of change ($\Delta_{\textrm{DirChange}}$) when animation is paused.}
     \label{fig:basic-trans-vars}
 \end{figure}
 
 \paragraph{Pillar (vertical)}
-The pillar pattern dissect the surface vertically and assigns the former color and next color to a top share and a bottom share of the pillar, respectively (\autoref{fig:basic-trans-vars}).
+The pillar pattern dissects the surface vertically and assigns the former color and next color to a top share and a bottom share of the pillar, respectively (\autoref{fig:basic-trans-vars}).
 A transition using this pattern starts with a full pillar using the former color.
 Then, the next color \emph{grows} from the top and overlays the former color step by step.
 Thus, after a brief training period, a user should be able to determine the former color and the next color, even for a static display.
@@ -218,7 +221,7 @@ The dithering is applied in screen space and from a perceptional point of view, 
 However, using dithering we assert that only actual colors from a color scheme will be used.
 
 \paragraph{Squares}
-The squares pattern extend the dithering by using areas larger that one pixel for the dithering raster (\autoref{fig:basic-trans-vars}).
+The squares pattern extends the dithering by using areas larger than one pixel for the dithering raster (\autoref{fig:basic-trans-vars}).
 As another difference, the pattern is applied in the world space of the treemap and not the raster on the screen.
 This reduces the visual blurring of colors while providing a transition nonetheless.
 \begin{figure}[tbp]
@@ -236,7 +239,7 @@ This reduces the visual blurring of colors while providing a transition nonethel
 
 \paragraph{Arrows} % (lateral)
 This pattern is a modulated, two-dim\-en\-sion\-al \emph{abs} function applied to every lateral face individually.
-The top faces behaves similar to the pillar pattern.
+The top faces behave similarly to the pillar pattern.
 In contrast to the pillar and pyramid patterns, the arrow direction can encode the direction of value change, as the arrows can point upwards or downwards~(\autoref{fig:arrow-trans-vars}).
 This, however, prevents effective encoding of direction of animation.
 \begin{figure}[tbp]
@@ -266,9 +269,9 @@ Alternatively, the arrows can be animated on the top faces for the whole duratio
 \subsection{Pattern Composition and Contours}
 Invariant to all patterns is that not both the direction of animation and the direction of value change can be encoded at the same time.
 As further indicator for the direction of animation, we propose a combination of patterns.
-Thereby, one of the two distinctly colored areas is superimpose by an additional pattern~(\autoref{fig:trans-vars-combinations}).
+Thereby, one of the two distinctly colored areas is superimposed by an additional pattern~(\autoref{fig:trans-vars-combinations}).
 This allows for direct unambiguous display of change direction, both when paused and animated, as only one state has a second pattern superimposed.
-This shape of the pattern remains unchanged ($t=0.5$) during the transition.
+The shape of the pattern remains unchanged ($t=0.5$) during the transition.
 However, as the overall transition changes the surfaces encoding former and next color, the application of the secondary pattern will vary during the transition.
 \begin{figure}[t]
     \begin{tikzpicture}[spy using outlines={white, rectangle, magnification=2.5, size=32, connect spies, every spy on node/.append style={line width=1.0pt}},inner sep=0pt, outer sep=0pt]
@@ -288,7 +291,7 @@ However, as the overall transition changes the surfaces encoding former and next
 
 \paragraph{Candidates for Secondary Use}
 Technically, the secondary pattern is not limited by the choice of the main pattern.
-However, we suggest using a different, distinct pattern w.r.t. to the main one, ideally one that has a uniform distribution of colors.
+However, we suggest using a different, distinct pattern w.r.t. the main one, ideally one that has a uniform distribution of colors.
 Both approaches ensure that the pattern is (1) distinguishable from the main pattern and (2) visible without regard to the current transition state.
 
 \paragraph{Parameterization of Secondary Pattern}
@@ -305,13 +308,13 @@ So far, we considered isolated transitions from one color to another for a singl
 In order to display multiple changes over multiple snapshots of data, we consider the use of animations.
 
 \paragraph{Transition}
-A transition describes a change from a nodes state or mapped value to another one.
+A transition describes a change from a node's state or mapped value to another one.
 Thereby, a transition will not encode time or duration but only progress.
 The required parameter for such a transition is its progress control $t \in [0, 1]$ where $0$ is used at the start and $1$ at the end of a transition.
 
 \paragraph{Animation}
 Animation is the continuous progression over multiple states by means of transitions.
-More important, it is linked to the concept of time and duration.
+More importantly, it is linked to the concept of time and duration.
 Note that the transitions can be enhanced by easing functions which is not discussed in this context~\cite{Thomas81}.
 The animation between two points in time, e.g., two subsequent revisions for software system data, can range from running all transitions for every node and every visual variable in parallel as well as in strict sequence.
 The former approach is strictly limited by the number of concurrent changes (\autoref{fig:oh-my-clutter}).
@@ -333,12 +336,12 @@ For the animation in general, we had to redesign large parts of our visualizatio
 In the remainder of this section we briefly discuss some animation aspects and assess the applicability of our patterns.
 
 \subsection{Animation Controller}
-We composed the handling of animations and transitions to a system that manages all temporal animations, controlling the time-dependent transition values as well as the individual, per-node transitions states (\autoref{fig:teaser}).
+We composed the handling of animations and transitions into a system that manages all temporal animations, controlling the time-dependent transition values as well as the individual, per-node transition states (\autoref{fig:teaser}).
 Thereby, our prototype allows for independent, simultaneous transitions per-node, for every mapped data attribute.
-The procedural patterns are implemented as temporal visual variables, mapping a 3-tuple (a value per state and transition progress) to color instead of single value.
-An animation of weight and height mappings are implemented similarly.
+The procedural patterns are implemented as temporal visual variables, mapping a 3-tuple (a value per state and transition progress) to color instead of a single value.
+An animation of weight and height mappings is implemented similarly.
 The latter allows for ordering and masking of transitions based on (1) transition type, (2) arbitrary node associated values, (3) meta data, or (4) enumeration and more.
-With this starting point, we have begun to identify meaningful applications with this design space.
+With this starting point, we have begun to identify meaningful applications within this design space.
 \begin{figure}[b]
     \begin{tikzpicture}[spy using outlines={white, rectangle, magnification=2.5, size=32, connect spies, every spy on node/.append style={line width=1.0pt}},inner sep=0pt, outer sep=0pt]
         \node[anchor=west](arrows0) at (0,0) {%

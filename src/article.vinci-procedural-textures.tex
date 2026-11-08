@@ -67,7 +67,7 @@
 
 \begin{document}
 
-\title[Visualization of Data Changes in 2.5D Treemaps using Procedural Textures and Animated Transitions]{Visualization of Data Changes in 2.5D Treemaps using\\Procedural Textures and Animated Transitions}
+\title[Visualization of Data Changes in 2.5D Treemaps using Procedural Textures and Animated Transitions]{Visualization of Data Changes in 2.5D Treemaps using\texorpdfstring{\\}{ }Procedural Textures and Animated Transitions}
 
 \author{Daniel Limberger}
 \orcid{0000-0002-9111-4809}
@@ -98,7 +98,7 @@
     This work investigates the extent to which animated procedural texture patterns can be used to support the representation of changes in 2.5D treemaps.
     Changes in height, color, and area of individual nodes can easily be visualized using animated transitions.
     Especially for changes in the color attribute, plain animated transitions are not able to directly communicate the direction of change itself.
-    We show how procedural texture patterns can be superimposed onto the color mapping and support transitions.
+    We show how procedural texture patterns can be overlaid on the color mapping and support transitions.
     To this end, we discuss qualitative properties of each pattern, demonstrate their ability to communicate change direction both with and without animation, and conclude which of the patterns are more likely to increase effectiveness and correctness of the change mapping in 2.5D treemaps.
 \end{abstract}
 
@@ -123,7 +123,6 @@
 \keywords{visualization, time-variant data, change visualization, 2.5D treemaps, animated transitions, procedural textures, read direction}
 
 \maketitle
-\hypersetup{pdftitle={Visualization of Data Changes in 2.5D Treemaps using Procedural Textures and Animated Transitions}}
 
 \section{Introduction}
 \begin{figure}[t]
@@ -239,7 +238,7 @@ This reduces the visual blurring of colors while providing a transition nonethel
 
 \paragraph{Arrows} % (lateral)
 This pattern is a modulated, two-dim\-en\-sion\-al \emph{abs} function applied to every lateral face individually.
-The top faces behave similarly to the pillar pattern.
+The top faces behave like the pillar pattern.
 In contrast to the pillar and pyramid patterns, the arrow direction can encode the direction of value change, as the arrows can point upwards or downwards~(\autoref{fig:arrow-trans-vars}).
 This, however, prevents effective encoding of direction of animation.
 \begin{figure}[tbp]

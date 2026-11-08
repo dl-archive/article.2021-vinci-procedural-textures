@@ -38,10 +38,11 @@ On `main`, the build produces the revised version (`v1.1-revised`). Check out `v
 ## Revisions
 
 `v1.1-revised` (2026-11-08) corrects errors in the camera-ready version without changing its content.
+Line and page breaks of v1.0 are kept: every page and column starts and ends as in the submitted version.
 Every page carries the note "Author's revised version (2026-11-08). Version of record: https://doi.org/10.1145/3481549.3481570".
 
 - References: [7] linked the DOI of a different paper (now 10.1145/3356422.3356444); [6] listed "Trapp Matthias" (now "Matthias Trapp"). As a result, [6] and [7] swap their numbers.
-- Grammar and typos: "superimposed onto", "allows transitioning", "etc." (was "etc.."), "more than", "physically based", "variants of" (was "of of"), "a procedural pattern", "capable of encoding", "dissects", "extends", "larger than", "behave similarly", "superimposed by", "The shape", "w.r.t. the main one", "node's state", "More importantly", "into a system", "transition states", "instead of a single value", "is implemented", "within this design space".
+- Grammar and typos: "overlaid on" (was "superimposed to"), "allows transitioning", "etc." (was "etc.."), "more than", "physically based", "variants of" (was "of of"), "a procedural pattern", "capable of encoding", "dissects", "extends", "larger than", "behave like" (was "behaves similar"), "superimposed by", "The shape", "w.r.t. the main one", "node's state", "More importantly", "into a system", "transition states", "instead of a single value", "is implemented", "within this design space".
 - Metadata: PDF title now has the missing space ("using Procedural"); keyword "2.5d" is now "2.5D".
 
 ## Citation

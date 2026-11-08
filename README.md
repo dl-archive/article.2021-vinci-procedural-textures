@@ -28,17 +28,19 @@ DOI: [10.1145/3481549.3481570](https://doi.org/10.1145/3481549.3481570) · Autho
 ```
 
 The bundled `acmart.cls` (2021) is not compatible with current TeX Live releases (`hyperxmp` load-order error), hence the TeX Live 2021 container.
-On `main`, the build produces the revised version (`v1.1-revised`). Check out `v1.0-camera-ready` to reproduce `limberger2021-procedural-as-submitted.pdf` (identical text and layout; figure captions differ marginally in glyph rendering).
+On `main`, the build produces the revised version (`v1.2-revised`). Check out `v1.0-camera-ready` to reproduce `limberger2021-procedural-as-submitted.pdf` (identical text and layout; figure captions differ marginally in glyph rendering).
 
 ## Versions
 
 - [`v1.0-camera-ready`](https://github.com/dl-archive/article.2021-vinci-procedural-textures/tree/v1.0-camera-ready) – sources as submitted to ACM (2021-09-16)
-- [`v1.1-revised`](https://github.com/dl-archive/article.2021-vinci-procedural-textures/tree/v1.1-revised) – author's revised version (2026-11-08): typo, grammar and reference fixes, see [Revisions](#revisions)
+- [`v1.1-revised`](https://github.com/dl-archive/article.2021-vinci-procedural-textures/tree/v1.1-revised) – superseded by v1.2 (same fixes, but moved lines across columns and pages)
+- [`v1.2-revised`](https://github.com/dl-archive/article.2021-vinci-procedural-textures/tree/v1.2-revised) – author's revised version (2026-11-08): typo, grammar and reference fixes with the layout of v1.0, see [Revisions](#revisions)
 
 ## Revisions
 
-`v1.1-revised` (2026-11-08) corrects errors in the camera-ready version without changing its content.
+`v1.2-revised` (2026-11-08) corrects errors in the camera-ready version without changing its content.
 Line and page breaks of v1.0 are kept: every page and column starts and ends as in the submitted version.
+(`v1.1-revised` contained the same corrections, but some of them moved lines across columns and pages.)
 Every page carries the note "Author's revised version (2026-11-08). Version of record: https://doi.org/10.1145/3481549.3481570".
 
 - References: [7] linked the DOI of a different paper (now 10.1145/3356422.3356444); [6] listed "Trapp Matthias" (now "Matthias Trapp"). As a result, [6] and [7] swap their numbers.

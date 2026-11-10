@@ -12,7 +12,8 @@ DOI: [10.1145/3481549.3481570](https://doi.org/10.1145/3481549.3481570) · Autho
 > We show how procedural texture patterns can be superimposed to the color mapping and support transitions.
 > To this end, we discuss qualitative properties of each pattern, demonstrate their ability to communicate change direction both with and without animation, and conclude which of the patterns are more likely to increase effectiveness and correctness of the change mapping in 2.5D treemaps.
 
-<p><a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-1.webp" width="24%" alt="page 1"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-2.webp" width="24%" alt="page 2"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-3.webp" width="24%" alt="page 3"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-4.webp" width="24%" alt="page 4"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-5.webp" width="24%" alt="page 5"/></a></p>
+<p><a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-1.webp" width="24%" alt="page 1"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-2.webp" width="24%" alt="page 2"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-3.webp" width="24%" alt="page 3"/></a> <a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-4.webp" width="24%" alt="page 4"/></a></p>
+<details><summary>All 5 pages</summary><p><a href="limberger2021-procedural-as-submitted.pdf"><img src="preview/page-5.webp" width="24%" alt="page 5"/></a></p></details>
 
 ## Contents
 

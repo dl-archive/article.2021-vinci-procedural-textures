@@ -4,7 +4,7 @@
 
 *Proceedings of the 14th International Symposium on Visual Information Communication and Interaction (VINCI '21)*, September 6–8, 2021, Potsdam, Germany. ACM, pp. 21:1–5.
 
-DOI: [10.1145/3481549.3481570](https://doi.org/10.1145/3481549.3481570) · Author's version: [Zenodo](https://doi.org/10.5281/zenodo.24056028) · [ResearchGate](https://www.researchgate.net/publication/354331984)
+[![Version of record: 10.1145/3481549.3481570](https://img.shields.io/badge/Version_of_record-10.1145%2F3481549.3481570-007ec6)](https://doi.org/10.1145/3481549.3481570) [![Author's version: 10.5281/zenodo.24056028](https://img.shields.io/badge/Author%27s_version-10.5281%2Fzenodo.24056028-007ec6)](https://doi.org/10.5281/zenodo.24056028) · [ResearchGate](https://www.researchgate.net/publication/354331984)
 
 > This work investigates the extent to which animated procedural texture patterns can be used to support the representation of changes in 2.5D treemaps.
 > Changes in height, color, and area of individual nodes can easily be visualized using animated transitions.
